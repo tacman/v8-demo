@@ -16,6 +16,7 @@ class AppController extends AbstractController
 	#[Template('app/app_homepage.html.twig')]
 	public function app_homepage(Request $request): array|Response
 	{
+        return $this->render('app/app_homepage.html.twig');
 		return [];
 	}
 }

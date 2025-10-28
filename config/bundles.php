@@ -17,4 +17,6 @@ return [
     Survos\WikiBundle\SurvosWikiBundle::class => ['all' => true],
     Survos\SeoBundle\SurvosSeoBundle::class => ['all' => true],
     Survos\JsonlBundle\SurvosJsonlBundle::class => ['all' => true],
+    Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true],
+    Symfony\Bundle\WebProfilerBundle\WebProfilerBundle::class => ['dev' => true, 'test' => true],
 ];

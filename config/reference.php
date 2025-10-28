@@ -963,6 +963,21 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     maxDescriptionLength?: int, // Default: 255
  *     enabled?: bool, // Default: true
  * }
+ * @psalm-type DebugConfig = array{
+ *     max_items?: int, // Max number of displayed items past the first level, -1 means no limit. // Default: 2500
+ *     min_depth?: int, // Minimum tree depth to clone all the items, 1 is default. // Default: 1
+ *     max_string_length?: int, // Max length of displayed strings, -1 means no limit. // Default: -1
+ *     dump_destination?: scalar|null, // A stream URL where dumps should be written to. // Default: null
+ *     theme?: "dark"|"light", // Changes the color of the dump() output when rendered directly on the templating. "dark" (default) or "light". // Default: "dark"
+ * }
+ * @psalm-type WebProfilerConfig = array{
+ *     toolbar?: bool|array{ // Profiler toolbar configuration
+ *         enabled?: bool, // Default: false
+ *         ajax_replace?: bool, // Replace toolbar on AJAX requests // Default: false
+ *     },
+ *     intercept_redirects?: bool, // Default: false
+ *     excluded_ajax_paths?: scalar|null, // Default: "^/((index|app(_[\\w]+)?)\\.php/)?_wdt"
+ * }
  */
 final class App extends AppReference
 {
@@ -1004,6 +1019,8 @@ final class App extends AppReference
      *         survos_reveal?: SurvosRevealConfig,
      *         survos_wiki?: SurvosWikiConfig,
      *         survos_seo?: SurvosSeoConfig,
+     *         debug?: DebugConfig,
+     *         web_profiler?: WebProfilerConfig,
      *     },
      *     "when@prod"?: array{
      *         imports?: ImportsConfig,
@@ -1043,6 +1060,7 @@ final class App extends AppReference
      *         survos_reveal?: SurvosRevealConfig,
      *         survos_wiki?: SurvosWikiConfig,
      *         survos_seo?: SurvosSeoConfig,
+     *         web_profiler?: WebProfilerConfig,
      *     },
      *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
      *         imports?: ImportsConfig,
