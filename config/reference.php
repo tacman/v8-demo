@@ -146,7 +146,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         cookie_name?: scalar|null, // The name of the cookie to use when using stateless protection. // Default: "csrf-token"
  *     },
  *     form?: bool|array{ // Form configuration
- *         enabled?: bool, // Default: false
+ *         enabled?: bool, // Default: true
  *         csrf_protection?: array{
  *             enabled?: scalar|null, // Default: null
  *             token_id?: scalar|null, // Default: null
@@ -343,7 +343,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         }>,
  *     },
  *     serializer?: bool|array{ // Serializer configuration
- *         enabled?: bool, // Default: false
+ *         enabled?: bool, // Default: true
  *         enable_attributes?: bool, // Default: true
  *         name_converter?: scalar|null,
  *         circular_reference_handler?: scalar|null,
@@ -360,7 +360,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         }>,
  *     },
  *     property_access?: bool|array{ // Property access configuration
- *         enabled?: bool, // Default: false
+ *         enabled?: bool, // Default: true
  *         magic_call?: bool, // Default: false
  *         magic_get?: bool, // Default: true
  *         magic_set?: bool, // Default: true
@@ -368,11 +368,11 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         throw_exception_on_invalid_property_path?: bool, // Default: true
  *     },
  *     type_info?: bool|array{ // Type info configuration
- *         enabled?: bool, // Default: false
+ *         enabled?: bool, // Default: true
  *         aliases?: array<string, scalar|null>,
  *     },
  *     property_info?: bool|array{ // Property info configuration
- *         enabled?: bool, // Default: false
+ *         enabled?: bool, // Default: true
  *         with_constructor_extractor?: bool, // Registers the constructor extractor. // Default: true
  *     },
  *     cache?: array{ // Cache configuration
@@ -463,7 +463,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     },
  *     disallow_search_engine_index?: bool, // Enabled by default when debug is enabled. // Default: true
  *     http_client?: bool|array{ // HTTP Client configuration
- *         enabled?: bool, // Default: false
+ *         enabled?: bool, // Default: true
  *         max_host_connections?: int, // The maximum number of connections to a single host.
  *         default_options?: array{
  *             headers?: array<string, mixed>,
@@ -863,6 +863,106 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         resolve_target_entities?: array<string, scalar|null>,
  *     },
  * }
+ * @psalm-type TwigConfig = array{
+ *     form_themes?: list<scalar|null>,
+ *     globals?: array<string, array{ // Default: []
+ *         id?: scalar|null,
+ *         type?: scalar|null,
+ *         value?: mixed,
+ *     }>,
+ *     autoescape_service?: scalar|null, // Default: null
+ *     autoescape_service_method?: scalar|null, // Default: null
+ *     cache?: scalar|null, // Default: true
+ *     charset?: scalar|null, // Default: "%kernel.charset%"
+ *     debug?: bool, // Default: "%kernel.debug%"
+ *     strict_variables?: bool, // Default: "%kernel.debug%"
+ *     auto_reload?: scalar|null,
+ *     optimizations?: int,
+ *     default_path?: scalar|null, // The default path used to load templates. // Default: "%kernel.project_dir%/templates"
+ *     file_name_pattern?: list<scalar|null>,
+ *     paths?: array<string, mixed>,
+ *     date?: array{ // The default format options used by the date filter.
+ *         format?: scalar|null, // Default: "F j, Y H:i"
+ *         interval_format?: scalar|null, // Default: "%d days"
+ *         timezone?: scalar|null, // The timezone used when formatting dates, when set to null, the timezone returned by date_default_timezone_get() is used. // Default: null
+ *     },
+ *     number_format?: array{ // The default format options for the number_format filter.
+ *         decimals?: int, // Default: 0
+ *         decimal_point?: scalar|null, // Default: "."
+ *         thousands_separator?: scalar|null, // Default: ","
+ *     },
+ *     mailer?: array{
+ *         html_to_text_converter?: scalar|null, // A service implementing the "Symfony\Component\Mime\HtmlToTextConverter\HtmlToTextConverterInterface". // Default: null
+ *     },
+ * }
+ * @psalm-type SurvosBarcodeConfig = array{
+ *     widthFactor?: scalar|null, // Default: 2
+ *     height?: scalar|null, // Default: 30
+ *     foregroundColor?: scalar|null, // Default: "green"
+ * }
+ * @psalm-type SurvosFlickrConfig = array{
+ *     api_key?: scalar|null, // Default: ""
+ *     secret?: scalar|null, // Default: ""
+ *     cache_expiration?: scalar|null, // Default: 3600
+ * }
+ * @psalm-type SurvosCommandConfig = array{
+ *     base_layout?: scalar|null, // Default: "base.html.twig"
+ *     subdomain_variable?: scalar|null, // Default: "subdomain"
+ *     namespaces?: list<scalar|null>,
+ * }
+ * @psalm-type SurvosBunnyConfig = array{
+ *     api_key?: scalar|null, // Default: null
+ *     storage_zone?: scalar|null, // Default: null
+ *     zones?: list<array{ // Default: []
+ *         name?: scalar|null,
+ *         id?: scalar|null,
+ *         region?: scalar|null,
+ *         readonly_password?: scalar|null,
+ *         password?: scalar|null,
+ *     }>,
+ * }
+ * @psalm-type SurvosCodeConfig = array{
+ *     base_layout?: scalar|null, // Default: "base.html.twig"
+ * }
+ * @psalm-type TwigComponentConfig = array{
+ *     defaults?: array<string, string|array{ // Default: ["__deprecated__use_old_naming_behavior"]
+ *         template_directory?: scalar|null, // Default: "components"
+ *         name_prefix?: scalar|null, // Default: ""
+ *     }>,
+ *     anonymous_template_directory?: scalar|null, // Defaults to `components`
+ *     profiler?: bool, // Enables the profiler for Twig Component (in debug mode) // Default: "%kernel.debug%"
+ *     controllers_json?: scalar|null, // Deprecated: The "twig_component.controllers_json" config option is deprecated, and will be removed in 3.0. // Default: null
+ * }
+ * @psalm-type StimulusConfig = array{
+ *     controller_paths?: list<scalar|null>,
+ *     controllers_json?: scalar|null, // Default: "%kernel.project_dir%/assets/controllers.json"
+ * }
+ * @psalm-type SurvosCoreConfig = array{
+ *     enabled?: bool, // Default: true
+ *     dd?: bool, // Default: true
+ * }
+ * @psalm-type SurvosSimpleDatatablesConfig = array{
+ *     stimulus_controller?: scalar|null, // Default: "@survos/simple-datatables-bundle/table"
+ *     per_page?: bool, // Default: 10
+ *     searchable?: bool, // Default: true
+ *     fixed_height?: scalar|null, // Default: true
+ * }
+ * @psalm-type SurvosRevealConfig = array{
+ *     enabled?: bool, // Default: true
+ * }
+ * @psalm-type SurvosWikiConfig = array{
+ *     search_limit?: int, // Default: 20
+ *     cache_timeout?: int, // Default: 0
+ *     enabled?: bool, // Default: true
+ * }
+ * @psalm-type SurvosSeoConfig = array{
+ *     branding?: scalar|null, // branding will be added if the title is short enough. // Default: ""
+ *     minTitleLength?: int, // minimum title length // Default: 30
+ *     maxTitleLength?: int, // maximum title length // Default: 150
+ *     minDescriptionLength?: int, // Default: 10
+ *     maxDescriptionLength?: int, // Default: 255
+ *     enabled?: bool, // Default: true
+ * }
  */
 final class App extends AppReference
 {
@@ -873,12 +973,37 @@ final class App extends AppReference
      *     services?: ServicesConfig,
      *     framework?: FrameworkConfig,
      *     doctrine?: DoctrineConfig,
+     *     twig?: TwigConfig,
+     *     survos_barcode?: SurvosBarcodeConfig,
+     *     survos_flickr?: SurvosFlickrConfig,
+     *     survos_command?: SurvosCommandConfig,
+     *     survos_bunny?: SurvosBunnyConfig,
+     *     twig_component?: TwigComponentConfig,
+     *     stimulus?: StimulusConfig,
+     *     survos_core?: SurvosCoreConfig,
+     *     survos_simple_datatables?: SurvosSimpleDatatablesConfig,
+     *     survos_reveal?: SurvosRevealConfig,
+     *     survos_wiki?: SurvosWikiConfig,
+     *     survos_seo?: SurvosSeoConfig,
      *     "when@dev"?: array{
      *         imports?: ImportsConfig,
      *         parameters?: ParametersConfig,
      *         services?: ServicesConfig,
      *         framework?: FrameworkConfig,
      *         doctrine?: DoctrineConfig,
+     *         twig?: TwigConfig,
+     *         survos_barcode?: SurvosBarcodeConfig,
+     *         survos_flickr?: SurvosFlickrConfig,
+     *         survos_command?: SurvosCommandConfig,
+     *         survos_bunny?: SurvosBunnyConfig,
+     *         survos_code?: SurvosCodeConfig,
+     *         twig_component?: TwigComponentConfig,
+     *         stimulus?: StimulusConfig,
+     *         survos_core?: SurvosCoreConfig,
+     *         survos_simple_datatables?: SurvosSimpleDatatablesConfig,
+     *         survos_reveal?: SurvosRevealConfig,
+     *         survos_wiki?: SurvosWikiConfig,
+     *         survos_seo?: SurvosSeoConfig,
      *     },
      *     "when@prod"?: array{
      *         imports?: ImportsConfig,
@@ -886,6 +1011,18 @@ final class App extends AppReference
      *         services?: ServicesConfig,
      *         framework?: FrameworkConfig,
      *         doctrine?: DoctrineConfig,
+     *         twig?: TwigConfig,
+     *         survos_barcode?: SurvosBarcodeConfig,
+     *         survos_flickr?: SurvosFlickrConfig,
+     *         survos_command?: SurvosCommandConfig,
+     *         survos_bunny?: SurvosBunnyConfig,
+     *         twig_component?: TwigComponentConfig,
+     *         stimulus?: StimulusConfig,
+     *         survos_core?: SurvosCoreConfig,
+     *         survos_simple_datatables?: SurvosSimpleDatatablesConfig,
+     *         survos_reveal?: SurvosRevealConfig,
+     *         survos_wiki?: SurvosWikiConfig,
+     *         survos_seo?: SurvosSeoConfig,
      *     },
      *     "when@test"?: array{
      *         imports?: ImportsConfig,
@@ -893,6 +1030,19 @@ final class App extends AppReference
      *         services?: ServicesConfig,
      *         framework?: FrameworkConfig,
      *         doctrine?: DoctrineConfig,
+     *         twig?: TwigConfig,
+     *         survos_barcode?: SurvosBarcodeConfig,
+     *         survos_flickr?: SurvosFlickrConfig,
+     *         survos_command?: SurvosCommandConfig,
+     *         survos_bunny?: SurvosBunnyConfig,
+     *         survos_code?: SurvosCodeConfig,
+     *         twig_component?: TwigComponentConfig,
+     *         stimulus?: StimulusConfig,
+     *         survos_core?: SurvosCoreConfig,
+     *         survos_simple_datatables?: SurvosSimpleDatatablesConfig,
+     *         survos_reveal?: SurvosRevealConfig,
+     *         survos_wiki?: SurvosWikiConfig,
+     *         survos_seo?: SurvosSeoConfig,
      *     },
      *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
      *         imports?: ImportsConfig,

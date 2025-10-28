@@ -22,6 +22,80 @@
             "src/Repository/.gitignore"
         ]
     },
+    "nyholm/psr7": {
+        "version": "1.8",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "4a8c0345442dcca1d8a2c65633dcf0285dd5a5a2"
+        },
+        "files": [
+            "config/packages/nyholm_psr7.yaml"
+        ]
+    },
+    "survos/barcode-bundle": {
+        "version": "2.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "19dfaed39754601b1ee9cc8e64cd0dee85a4ddfe"
+        },
+        "files": [
+            "config/packages/survos_barcode.yaml"
+        ]
+    },
+    "survos/bunny-bundle": {
+        "version": "2.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.5",
+            "ref": "38d6e9c843b0244587cadc511aa1437d2c175ca1"
+        },
+        "files": [
+            "config/packages/survos_bunny.yaml",
+            "config/routes/survos_bunny.yaml"
+        ]
+    },
+    "survos/code-bundle": {
+        "version": "2.0.30"
+    },
+    "survos/command-bundle": {
+        "version": "2.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.5",
+            "ref": "2ae59ea83b8aeb1c288a149af0f594ee9ff52524"
+        },
+        "files": [
+            "config/packages/survos_command.yaml",
+            "config/routes/survos_command.yaml"
+        ]
+    },
+    "survos/core-bundle": {
+        "version": "2.0.31"
+    },
+    "survos/flickr-bundle": {
+        "version": "2.0.30"
+    },
+    "survos/jsonl-bundle": {
+        "version": "2.0.31"
+    },
+    "survos/reveal-bundle": {
+        "version": "2.0.31"
+    },
+    "survos/seo-bundle": {
+        "version": "2.0.31"
+    },
+    "survos/simple-datatables-bundle": {
+        "version": "2.0.31"
+    },
+    "survos/wiki-bundle": {
+        "version": "2.0.31"
+    },
     "symfony/console": {
         "version": "8.0",
         "recipe": {
@@ -47,6 +121,18 @@
             ".env.dev"
         ]
     },
+    "symfony/form": {
+        "version": "8.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "7.2",
+            "ref": "7d86a6723f4a623f59e2bf966b6aad2fc461d36b"
+        },
+        "files": [
+            "config/packages/csrf.yaml"
+        ]
+    },
     "symfony/framework-bundle": {
         "version": "8.0",
         "recipe": {
@@ -67,6 +153,18 @@
             ".editorconfig"
         ]
     },
+    "symfony/property-info": {
+        "version": "8.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "7.3",
+            "ref": "dae70df71978ae9226ae915ffd5fad817f5ca1f7"
+        },
+        "files": [
+            "config/packages/property_info.yaml"
+        ]
+    },
     "symfony/routing": {
         "version": "8.0",
         "recipe": {
@@ -78,6 +176,46 @@
         "files": [
             "config/packages/routing.yaml",
             "config/routes.yaml"
+        ]
+    },
+    "symfony/stimulus-bundle": {
+        "version": "2.31",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "2.20",
+            "ref": "c30f782a8910ae9f12e7a1399db607d172d23da6"
+        },
+        "files": [
+            "assets/bootstrap.js",
+            "assets/controllers.json",
+            "assets/controllers/csrf_protection_controller.js",
+            "assets/controllers/hello_controller.js"
+        ]
+    },
+    "symfony/twig-bundle": {
+        "version": "8.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "6.4",
+            "ref": "cab5fd2a13a45c266d45a7d9337e28dee6272877"
+        },
+        "files": [
+            "config/packages/twig.yaml",
+            "templates/base.html.twig"
+        ]
+    },
+    "symfony/ux-twig-component": {
+        "version": "2.31",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "2.13",
+            "ref": "f367ae2a1faf01c503de2171f1ec22567febeead"
+        },
+        "files": [
+            "config/packages/twig_component.yaml"
         ]
     }
 }

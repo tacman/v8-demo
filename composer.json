@@ -9,18 +9,34 @@
         "php": ">=8.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "doctrine/doctrine-bundle": "*",
+        "doctrine/doctrine-bundle": ">=4",
         "doctrine/orm": "3.6.x-dev",
+        "survos/barcode-bundle": "^2.0",
+        "survos/bunny-bundle": "*",
+        "survos/core-bundle": "*",
+        "survos/flickr-bundle": "^2.0",
+        "survos/jsonl-bundle": "^2.0",
+        "survos/reveal-bundle": "*",
+        "survos/seo-bundle": "*",
+        "survos/simple-datatables-bundle": "*",
+        "survos/wiki-bundle": "*",
         "symfony/console": "8.0.*",
         "symfony/dotenv": "8.0.*",
         "symfony/flex": "^2.8.2",
+        "symfony/form": "8.0.*",
         "symfony/framework-bundle": "8.0.*",
         "symfony/runtime": "8.0.*",
-        "symfony/yaml": "8.0.*"
+        "symfony/stimulus-bundle": "*",
+        "symfony/twig-bridge": "8.0.*",
+        "symfony/twig-bundle": "8.0.*",
+        "symfony/ux-twig-component": "*",
+        "symfony/yaml": "8.0.*",
+        "twig/twig": "^3.21.1"
     },
     "config": {
         "allow-plugins": {
             "php-http/discovery": true,
+            "survos/installer": true,
             "symfony/flex": true,
             "symfony/runtime": true
         },
@@ -67,5 +83,9 @@
             "allow-contrib": false,
             "require": "8.0.*"
         }
+    },
+    "require-dev": {
+        "survos/code-bundle": "*",
+        "survos/command-bundle": "*"
     }
 }
